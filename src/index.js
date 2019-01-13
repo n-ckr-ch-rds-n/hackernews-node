@@ -29,7 +29,13 @@ const resolvers = {
             updateLink.url = args.url
             updateLink.description = args.description
             return updateLink
+        },
+        deleteLink(parents, args) {
+            const link = links.find(link => link.id === args.id);
+            links = links.filter(link => link.id !== args.id);
+            return link
         }
+
     }
 };
 
